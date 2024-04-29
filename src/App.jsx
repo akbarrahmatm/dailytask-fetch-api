@@ -5,6 +5,7 @@ import FormModal from "./components/FormModal";
 import Header from "./components/Header";
 import Menu from "./components/Menu";
 import Paginate from "./components/Paginate";
+import Search from "./components/Search";
 import SuccessModal from "./components/SucessModal";
 import TableCar from "./components/TableCar";
 import { createCar, getAllCars } from "./utils/httpRequest";
@@ -14,6 +15,7 @@ function App() {
   const [cars, setCars] = useState([]);
   const [requestAt, setRequestAt] = useState("");
   const [modalAdd, setModalAdd] = useState(false);
+
   const [inputAdd, setInputAdd] = useState();
 
   // Pagination
@@ -34,11 +36,17 @@ function App() {
       setErrorFetch(null);
       let params;
       let page;
+      let search = "";
       try {
         params = new URL(document.location).searchParams;
         page = params.get("page");
+        search = params.get("search") || "";
 
-        const response = await getAllCars(page, 2);
+        console.log(search);
+
+        const response = await getAllCars(page, 5, search);
+
+        console.log(response);
 
         setCars(response.data.cars);
         setRequestAt(response.requestAt);
@@ -124,6 +132,7 @@ function App() {
       {successFetch && (
         <SuccessModal message={successFetch} open={successFetch} />
       )}
+
       <FormModal title={"Add Car Data"} open={modalAdd}>
         <Form method="POST">
           <Form.Group className="mb-3" controlId="formCarName">
@@ -169,8 +178,11 @@ function App() {
       </FormModal>
 
       <Menu />
+
       <Container>
         <Header title={"Cars Data"} />
+        <Search />
+
         <Button onClick={handleClickAdd} className="my-3">
           + Add Car Data
         </Button>
