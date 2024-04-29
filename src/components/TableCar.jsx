@@ -1,4 +1,5 @@
-import { Table, Button, Spinner } from "react-bootstrap";
+import { Table } from "react-bootstrap";
+import Loading from "./Loading";
 
 export default function TableCar({ data, isLoading, requestAt }) {
   return (
@@ -41,16 +42,7 @@ export default function TableCar({ data, isLoading, requestAt }) {
 
       {isLoading && (
         <div className=" text-center">
-          <Button variant="success" className="d-block m-auto">
-            <Spinner
-              as="span"
-              animation="border"
-              size="sm"
-              role="status"
-              aria-hidden="true"
-            />
-          </Button>
-          <p className="fw-bold mt-1">Fetching cars data ...</p>
+          <Loading message={"Fetching cars data ..."} />
         </div>
       )}
 

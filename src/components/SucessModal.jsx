@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 
-export default function ErrorModal({ message, open }) {
+export default function SuccessModal({ message, open }) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -20,15 +20,15 @@ export default function ErrorModal({ message, open }) {
     <>
       <Modal centered show={show} onHide={handleOnClose}>
         <Modal.Header
-          className="bg-danger text-white"
+          className="bg-success text-white"
           closeVariant="white"
           closeButton
         ></Modal.Header>
         <Modal.Body className="text-center fs-4">
           {message}
           <div>
-            <Button className="mt-3" variant="danger" onClick={handleOnClose}>
-              Close
+            <Button className="mt-3" variant="success" onClick={handleOnClose}>
+              Ok
             </Button>
           </div>
         </Modal.Body>
