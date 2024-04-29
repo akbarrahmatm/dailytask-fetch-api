@@ -1,8 +1,25 @@
-# React + Vite
+# Individual Daily Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Create CRUD using React Vite
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Clone This Repository
+- `npm i`
+- `npm run dev`
+
+## Preview
+
+<p align="center" width="90%">
+    <img width="100%" src="./preview.png"> 
+</p>
+
+## Backend
+
+[Repository](https://github.com/akbarrahmatm/f-fsw24001086-km6-akb-carmanagementdashboard-ch4)
+
+##### Database Structure
+
+<p align="center" width="100%">
+    <img width="33%" src="./dbstructure.png"> 
+</p>

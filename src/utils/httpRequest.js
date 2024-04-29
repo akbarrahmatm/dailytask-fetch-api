@@ -3,11 +3,11 @@ const BASE_URL = "http://localhost:3000";
 export async function getAllCars(page = 1, limit = 10, search = "") {
   let searchParams = "";
   if (search !== "") {
-    searchParams = `&search=${search}`;
+    searchParams = ``;
   }
 
   const response = await fetch(
-    `${BASE_URL}/api/v1/cars?limit=${limit}&page=${page}${searchParams}`,
+    `${BASE_URL}/api/v1/cars?limit=${limit}&page=${page}&search=${search}`,
     {
       method: "GET",
       headers: {
