@@ -39,3 +39,39 @@ export async function createCar(car) {
 
   return resData;
 }
+
+export async function deleteCar(id) {
+  const response = await fetch(`${BASE_URL}/api/v1/cars/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const resData = await response.json();
+
+  if (!response.ok) {
+    const message = `${response.status} | ${resData.message}`;
+    throw new Error(message);
+  }
+
+  return resData;
+}
+
+export async function getCarById(id) {
+  const response = await fetch(`${BASE_URL}/api/v1/cars/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const resData = await response.json();
+
+  if (!response.ok) {
+    const message = `${response.status} | ${resData.message}`;
+    throw new Error(message);
+  }
+
+  return resData;
+}

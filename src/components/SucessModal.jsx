@@ -14,6 +14,7 @@ export default function SuccessModal({ message, open }) {
 
   function handleOnClose() {
     setShow(false);
+    window.location.reload();
   }
 
   return (

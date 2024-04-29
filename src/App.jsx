@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { useEffect, useState } from "react";
 import { Container, Button, Form } from "react-bootstrap";
 import ErrorModal from "./components/ErrorModal";
@@ -32,6 +31,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       setIsFetching(true);
+      setErrorFetch(null);
       let params;
       let page;
       try {
@@ -84,6 +84,7 @@ function App() {
   async function handleSubmit() {
     if (inputAdd.name && inputAdd.rentPerDay && inputAdd.capacity) {
       setModalAdd(false);
+      setErrorFetch(null);
 
       setSuccessFetch("Loading ...");
 
@@ -94,6 +95,7 @@ function App() {
           setSuccessFetch(response.message);
         }
       } catch (err) {
+        setSuccessFetch(null);
         setErrorFetch(err.message);
       }
     } else {
@@ -122,7 +124,6 @@ function App() {
       {successFetch && (
         <SuccessModal message={successFetch} open={successFetch} />
       )}
-
       <FormModal title={"Add Car Data"} open={modalAdd}>
         <Form method="POST">
           <Form.Group className="mb-3" controlId="formCarName">
