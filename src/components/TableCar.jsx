@@ -216,6 +216,12 @@ export default function TableCar({ data, isLoading, requestAt }) {
       )}
 
       <p>Data gathered on : {isLoading ? "Loading..." : requestAt}</p>
+
+      <p>
+        <a href="https://github.com/akbarrahmatm/f-fsw24001086-km6-akb-carmanagementdashboard-ch4">
+          REST API
+        </a>
+      </p>
     </>
   );
 }
